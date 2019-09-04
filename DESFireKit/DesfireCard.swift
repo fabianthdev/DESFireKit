@@ -63,7 +63,7 @@ public class DesfireCard {
     }
     
     // MARK: Apps
-    public func getAppList(completion: @escaping (CardResponse<[Int]>) -> Void) {
+    public func getAppList(completion: @escaping (CardResponse<[UInt32]>) -> Void) {
         
         guard let command = self.apduCommand(for: .getApplicationDirectory) else {
             completion(.failure(error: DesfireCardError.invalidCommand))
@@ -75,9 +75,9 @@ public class DesfireCard {
             switch response {
             case let .success(value, sw1, sw2):
                 var value = value
-                var appIds: [Int] = []
+                var appIds: [UInt32] = []
                 for var i in 0..<value.count {
-                    appIds.append(value.prefix(upTo: 3).withUnsafeBytes({ $0.load(as: Int.self) }))
+                    appIds.append(value.prefix(upTo: 3).withUnsafeBytes({ $0.load(as: UInt32.self) }))
                     value.removeFirst(3)
                     i += 3
                 }
@@ -168,7 +168,7 @@ public class DesfireCard {
         self.sendCommand(command, completion: completion)
     }
     
-    public func readValue(from fileId: UInt8, completion: @escaping (CardResponse<Int>) -> Void) {
+    public func readValue(from fileId: UInt8, completion: @escaping (CardResponse<UInt32>) -> Void) {
         
         guard let command = self.apduCommand(for: .readValue, parameters: [fileId]) else {
             completion(.failure(error: DesfireCardError.invalidCommand))
@@ -178,7 +178,7 @@ public class DesfireCard {
         self.sendCommand(command) { (response) in
             switch response {
             case let .success(data, sw1, sw2):
-                let value = Int(littleEndian: data.withUnsafeBytes({ $0.load(as: Int.self) }))
+                let value = UInt32(littleEndian: data.withUnsafeBytes({ $0.load(as: UInt32.self) }))
                 completion(.success(value: value, sw1: sw1, sw2: sw2))
             case let .failure(error):
                 completion(.failure(error: error))
