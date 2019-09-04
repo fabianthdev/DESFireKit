@@ -10,6 +10,10 @@
 		1F0C8B80231C0B6100002AED /* DESFireKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0C8B76231C0B6000002AED /* DESFireKit.framework */; };
 		1F0C8B85231C0B6100002AED /* DESFireKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C8B84231C0B6100002AED /* DESFireKitTests.swift */; };
 		1F0C8B87231C0B6100002AED /* DESFireKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0C8B79231C0B6000002AED /* DESFireKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F0C8B93231C0B8D00002AED /* DesfireCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C8B92231C0B8D00002AED /* DesfireCard.swift */; };
+		1F0C8B95231C0DC900002AED /* DesfireCardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C8B94231C0DC900002AED /* DesfireCardError.swift */; };
+		1F0C8B97231C0DE400002AED /* DesfireCardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C8B96231C0DE400002AED /* DesfireCardResponse.swift */; };
+		1F0C8B99231C0EC100002AED /* DesfireFileSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C8B98231C0EC100002AED /* DesfireFileSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		1F0C8B7F231C0B6100002AED /* DESFireKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DESFireKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0C8B84231C0B6100002AED /* DESFireKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DESFireKitTests.swift; sourceTree = "<group>"; };
 		1F0C8B86231C0B6100002AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F0C8B92231C0B8D00002AED /* DesfireCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesfireCard.swift; sourceTree = "<group>"; };
+		1F0C8B94231C0DC900002AED /* DesfireCardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesfireCardError.swift; sourceTree = "<group>"; };
+		1F0C8B96231C0DE400002AED /* DesfireCardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesfireCardResponse.swift; sourceTree = "<group>"; };
+		1F0C8B98231C0EC100002AED /* DesfireFileSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesfireFileSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,10 @@
 			isa = PBXGroup;
 			children = (
 				1F0C8B79231C0B6000002AED /* DESFireKit.h */,
+				1F0C8B92231C0B8D00002AED /* DesfireCard.swift */,
+				1F0C8B94231C0DC900002AED /* DesfireCardError.swift */,
+				1F0C8B96231C0DE400002AED /* DesfireCardResponse.swift */,
+				1F0C8B98231C0EC100002AED /* DesfireFileSettings.swift */,
 				1F0C8B7A231C0B6000002AED /* Info.plist */,
 			);
 			path = DESFireKit;
@@ -148,6 +160,7 @@
 				TargetAttributes = {
 					1F0C8B75231C0B6000002AED = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 					1F0C8B7E231C0B6100002AED = {
 						CreatedOnToolsVersion = 11.0;
@@ -195,6 +208,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0C8B93231C0B8D00002AED /* DesfireCard.swift in Sources */,
+				1F0C8B95231C0DC900002AED /* DesfireCardError.swift in Sources */,
+				1F0C8B97231C0DE400002AED /* DesfireCardResponse.swift in Sources */,
+				1F0C8B99231C0EC100002AED /* DesfireFileSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +357,7 @@
 		1F0C8B8B231C0B6100002AED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -355,6 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.idroplinks.DESFireKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,6 +382,7 @@
 		1F0C8B8C231C0B6100002AED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -386,6 +406,7 @@
 		1F0C8B8E231C0B6100002AED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DESFireKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -403,6 +424,7 @@
 		1F0C8B8F231C0B6100002AED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DESFireKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
