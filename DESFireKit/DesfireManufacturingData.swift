@@ -16,26 +16,26 @@ public class DesfireManufacturingData {
     private let batchNumberBytes = 5
     private let productionBytes = 2
 
-    let hardwareVendorId: UInt8
-    let hardwareType: UInt8
-    let hardwareSubtype: UInt8
-    let hardwareVersionMajor: UInt8
-    let hardwareVersionMinor: UInt8
-    let hardwareStorageSize: UInt8
-    let hardwareProtocol: UInt8
+    public let hardwareVendorId: UInt8
+    public let hardwareType: UInt8
+    public let hardwareSubtype: UInt8
+    public let hardwareVersionMajor: UInt8
+    public let hardwareVersionMinor: UInt8
+    public let hardwareStorageSize: UInt8
+    public let hardwareProtocol: UInt8
 
-    let softwareVendorId: UInt8
-    let softwareType: UInt8
-    let softwareSubtype: UInt8
-    let softwareVersionMajor: UInt8
-    let softwareVersionMinor: UInt8
-    let softwareStorageSize: UInt8
-    let softwareProtocol: UInt8
+    public let softwareVendorId: UInt8
+    public let softwareType: UInt8
+    public let softwareSubtype: UInt8
+    public let softwareVersionMajor: UInt8
+    public let softwareVersionMinor: UInt8
+    public let softwareStorageSize: UInt8
+    public let softwareProtocol: UInt8
 
-    let uid: [UInt8]
-    let batchNumber: [UInt8]
-    let productionWeek: UInt8
-    let productionYear: UInt8
+    public let uid: [UInt8]
+    public let batchNumber: [UInt8]
+    public let productionWeek: UInt8
+    public let productionYear: UInt8
 
 
     init?(data: Data) {
