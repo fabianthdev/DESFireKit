@@ -60,10 +60,10 @@ public class DesfireManufacturingData {
         self.softwareStorageSize = data.removeFirst()
         self.softwareProtocol = data.removeFirst()
 
-        self.uid = data.prefix(self.uidBytes).map({ $0 })
+        self.uid = data.map({ $0 })[..<self.uidBytes].map({ $0 })
         data.removeFirst(self.uidBytes)
 
-        self.batchNumber = data.prefix(upTo: self.batchNumberBytes).map({ $0 })
+        self.batchNumber = data.map({ $0 })[..<self.batchNumberBytes].map({ $0 })
         data.removeFirst(self.batchNumberBytes)
 
         self.productionYear = data.removeFirst()
