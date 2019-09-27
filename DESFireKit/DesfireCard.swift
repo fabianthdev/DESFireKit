@@ -52,14 +52,25 @@ public class DesfireCard {
     
     // MARK: - Actions
     // MARK: General Information
-    public func getManufacturingData(completion: @escaping (CardResponse<Data>) -> Void) {
+    public func getManufacturingData(completion: @escaping (CardResponse<DesfireManufacturingData>) -> Void) {
         
         guard let command = self.apduCommand(for: .getManufaturingData) else {
             completion(.failure(error: DesfireCardError.invalidCommand))
             return
         }
         
-        self.sendCommand(command, completion: completion)
+        self.sendCommand(command) { response in
+            switch response {
+            case let .success(data, sw1, sw2):
+                guard let manufacturingData = DesfireManufacturingData(data: data) else {
+                    return completion(.failure(error: DesfireCardError.invalidResponse))
+                }
+                completion (.success(value: manufacturingData, sw1: sw1, sw2: sw2))
+
+            case let .failure(error):
+                completion(.failure(error: error))
+            }
+        }
     }
     
     // MARK: Apps
@@ -74,15 +85,14 @@ public class DesfireCard {
             
             switch response {
             case let .success(value, sw1, sw2):
-                var value = value
                 var appIds: [UInt32] = []
-                for var i in 0..<value.count {
-                    appIds.append(value.prefix(upTo: 3).withUnsafeBytes({ $0.load(as: UInt32.self) }))
-                    value.removeFirst(3)
-                    i += 3
+                for i in 0..<value.count where i % 3 == 0 && value.count >= i + 2 {
+
+                    let appId = ((UInt32(value[i]) & 0xFF) << 16) + ((UInt32(value[i + 1]) & 0xFF) << 8) + (UInt32(value[i + 2]) & 0xFF)
+                    appIds.append(appId)
                 }
                 completion(.success(value: appIds, sw1: sw1, sw2: sw2))
-                
+
             case let .failure(error):
                 completion(.failure(error: error))
             }
@@ -199,7 +209,7 @@ public class DesfireCard {
             bytes.append(UInt8(parameters.count))   // Parameter count to let the receiver know, how many parameters are coming
             bytes.append(contentsOf: parameters)    // The actual parameters
         }
-        bytes.append(0x00)                          // Expexted response length, set to 0 to accept any length
+        bytes.append(0x00)                          // Expected response length, set to 0 to accept any length
         
         return NFCISO7816APDU(data: Data(bytes))
     }
