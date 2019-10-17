@@ -8,9 +8,25 @@
 
 import Foundation
 
-public enum DesfireCardError: Error {
+public enum DesfireCardError: LocalizedError {
     case invalidCommand
     case invalidResponse
     case permissionDenied
     case unknownError
+
+    public var errorDescription: String? {
+        switch self {
+        case .invalidCommand:
+            return "The command that should be sent was invalid."
+
+        case .invalidResponse:
+            return "The card's response was invalid."
+
+        case .permissionDenied:
+            return "Permission denied."
+
+        case .unknownError:
+            return "An unknown error occurred."
+        }
+    }
 }
