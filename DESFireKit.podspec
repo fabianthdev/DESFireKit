@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "DESFireKit"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "Framework to communicate with DESFire cards."
 
   # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
   A framework for communicating with DESFire v1 nfc cards, written in Swift.
                    DESC
 
-  spec.homepage     = "https://idroplinks.com/"
+  spec.homepage     = "https://fabian-thies.de/"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -52,9 +52,9 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "Fabian Thies" => "fabian.thies@idroplinks.com" }
-  spec.social_media_url   = "https://twitter.com/fabianthiesdev"
-  spec.homepage = "https://idroplinks.com"
+  spec.author             = { "Fabian Thies" => "git@fabian-thies.de" }
+  spec.social_media_url   = "https://twitter.com/fabianthdev"
+  spec.homepage = "https://fabian-thies.de"
 
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -72,7 +72,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://gitlab.com/fabianthdev/desfirekit.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/fabianthdev/desfirekit.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
