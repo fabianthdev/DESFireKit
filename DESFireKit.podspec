@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "DESFireKit"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "Framework to communicate with DESFire cards."
 
   # This description is used to generate tags and improve search results.
@@ -28,8 +28,7 @@ Pod::Spec.new do |spec|
   A framework for communicating with DESFire v1 nfc cards, written in Swift.
                    DESC
 
-  spec.homepage     = "https://fabian-thies.de/"
-  # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  spec.homepage     = "https://fabian-thies.de/mensacard"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -83,7 +82,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "DESFireKit/**/*.{swift}"
+  spec.source_files  = "Sources/DESFireKit/**/*.{swift}"
   spec.exclude_files = "Classes/Exclude"
 
 
